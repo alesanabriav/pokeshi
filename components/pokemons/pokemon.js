@@ -42,27 +42,24 @@ class Stats extends Component {
 }
 
 
-const Details = TabNavigator({
+const DetailsTabs = TabNavigator({
   Abilities: {
-    screen: ({ screenProps }) => (
-      <Abilities {...screenProps} />
-    ),
+    screen: ({ screenProps }) =>
+      <Abilities {...screenProps} />,
   },
   Stats: {
-    screen: ({ screenProps }) => (
-      <Stats {...screenProps} />
-    ),
+    screen: ({ screenProps }) =>
+      <Stats {...screenProps} />,
   },
 }, {
-  tabBarPosition: 'top',
-  animationEnabled: true,
-  tabBarOptions: {
-    activeTintColor: '#e91e63',
-  },
+  initialRouteName: 'Abilities',
+  backBehavior: 'none',
 });
 
 
 class Pokemon extends Component {
+  static router = DetailsTabs.router;
+
   componentDidMount() {
     this.getPokemon();
   }
@@ -94,15 +91,19 @@ class Pokemon extends Component {
              : <View /> }
          </ScrollView>
          : <View /> }
+       <DetailsTabs screenProps={{ pokemon: item }} />
        <Text style={styles.item}>{item.name}</Text>
        <Text style={styles.item}>{item.height}</Text>
-       <Details screenProps={{ pokemon: item }} />
+
      </View>
    );
  }
 }
 
 const styles = StyleSheet.create({
+  tabs: {
+    flex: 1,
+  },
   container: {
     alignItems: 'center',
   },
