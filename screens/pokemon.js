@@ -11,7 +11,7 @@ class Pokemon extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <PokemonItem navigation={this.props.navigation} />
       </View>
     );
@@ -19,6 +19,9 @@ class Pokemon extends Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#EF5350',
+  },
   header: {
     backgroundColor: '#EF5350',
   },
