@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import PokemonItem from '../components/pokemons/pokemon';
+import { StyleSheet, View } from 'react-native';
+import PokemonItem from '../components/pokemon/pokemon';
 
 class Pokemon extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -11,9 +11,7 @@ class Pokemon extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <PokemonItem navigation={this.props.navigation} />
-      </View>
+      <PokemonItem navigation={this.props.navigation} />
     );
   }
 }

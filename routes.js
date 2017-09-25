@@ -9,6 +9,8 @@ const navigator = StackNavigator({
   Pokemon: {
     screen: Pokemon,
   },
+}, {
+  initialRouteName: 'Home',
 });
 
 export default navigator;
